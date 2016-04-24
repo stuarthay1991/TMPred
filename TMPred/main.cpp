@@ -7,10 +7,18 @@
 //
 
 #include <iostream>
+#include "SequenceHelp.hpp"
+
+using namespace std;
 
 int main(int argc, const char * argv[])
 {
+    
     // insert code here...
-    std::cout << "Hello, World!\n";
+    cout << "Hello, World!\n";
+    //display_transition(init_transition_matrix());
+    
+    convert_annotation("ADSASDADAUDS", "iiiMMMoooMMM");
+    
     return 0;
 }
