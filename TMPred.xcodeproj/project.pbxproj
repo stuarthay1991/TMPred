@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E6EFB221CCD5041005F5B1B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E6EFB211CCD5041005F5B1B /* main.cpp */; };
-		7E6EFB2B1CCD50EF005F5B1B /* class.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E6EFB2A1CCD50EF005F5B1B /* class.cpp */; };
+		11C8CE9C1CCD60A800025667 /* SequenceHelp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11C8CE9A1CCD60A800025667 /* SequenceHelp.cpp */; };
+		7E6EFB221CCD5041005F5B1B /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E6EFB211CCD5041005F5B1B /* test.cpp */; };
+		7E6EFB291CCD50E8005F5B1B /* header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E6EFB281CCD50E8005F5B1B /* header.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,9 +25,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11C8CE9A1CCD60A800025667 /* SequenceHelp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceHelp.cpp; sourceTree = "<group>"; };
+		11C8CE9B1CCD60A800025667 /* SequenceHelp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SequenceHelp.hpp; sourceTree = "<group>"; };
+		11C8CE9D1CCD6B2500025667 /* MainHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainHeader.h; sourceTree = "<group>"; };
+		11C8CE9E1CCDA6B200025667 /* class.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = class.cpp; sourceTree = "<group>"; };
+		11C8CE9F1CCDA6B200025667 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7E6EFB1E1CCD5041005F5B1B /* TMPred */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TMPred; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E6EFB211CCD5041005F5B1B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		7E6EFB2A1CCD50EF005F5B1B /* class.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = class.cpp; sourceTree = "<group>"; };
+		7E6EFB211CCD5041005F5B1B /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
+		7E6EFB281CCD50E8005F5B1B /* header.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = header.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +65,13 @@
 		7E6EFB201CCD5041005F5B1B /* TMPred */ = {
 			isa = PBXGroup;
 			children = (
-				7E6EFB2A1CCD50EF005F5B1B /* class.cpp */,
-				7E6EFB211CCD5041005F5B1B /* main.cpp */,
+				11C8CE9E1CCDA6B200025667 /* class.cpp */,
+				11C8CE9F1CCDA6B200025667 /* main.cpp */,
+				7E6EFB281CCD50E8005F5B1B /* header.cpp */,
+				7E6EFB211CCD5041005F5B1B /* test.cpp */,
+				11C8CE9A1CCD60A800025667 /* SequenceHelp.cpp */,
+				11C8CE9B1CCD60A800025667 /* SequenceHelp.hpp */,
+				11C8CE9D1CCD6B2500025667 /* MainHeader.h */,
 			);
 			path = TMPred;
 			sourceTree = "<group>";
@@ -91,7 +102,7 @@
 		7E6EFB161CCD5040005F5B1B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = None;
 				TargetAttributes = {
 					7E6EFB1D1CCD5040005F5B1B = {
@@ -121,8 +132,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E6EFB2B1CCD50EF005F5B1B /* class.cpp in Sources */,
-				7E6EFB221CCD5041005F5B1B /* main.cpp in Sources */,
+				7E6EFB291CCD50E8005F5B1B /* header.cpp in Sources */,
+				7E6EFB221CCD5041005F5B1B /* test.cpp in Sources */,
+				11C8CE9C1CCD60A800025667 /* SequenceHelp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +161,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
