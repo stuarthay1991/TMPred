@@ -23,13 +23,6 @@ using namespace std;
 Map init_transition_matrix();
 
 
-/*
- *  Input: Transition Matrix of the Map form
- *  Output: Nothing
- *  Display Transition Matrix
- */
-void display_transition(Map result);
-
 
 class SequenceType{
     
@@ -45,8 +38,21 @@ public:
     void calculateProbability();
     
     void update_transition_matrix(char i, char j, string annotation);
+    
+    /*
+     *  Input: Transition Matrix of the Map form
+     *  Output: Nothing
+     *  Display Transition Matrix
+     */
+    void display_transition();
 
-    void display_blah();
+    void display_sequence();
+    
+    /*
+     *  Input: Nothing.
+     *  Output: Returns a Default Dict of type { i : [6, 7, 10, 2] } based on the length.
+     */
+    DefaultDict get_durations();
     
     /*
      *  Contructor that initalizes the Transition Matrix

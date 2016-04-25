@@ -27,8 +27,8 @@ SequenceType::SequenceType(){
 }
 
 
-void display_transition(Map result){
-    for (Map::iterator it=result.begin(); it!=result.end(); ++it)
+void SequenceType::display_transition(){
+    for (Map::iterator it=this->transition_matrix.begin(); it!=this->transition_matrix.end(); ++it)
         std::cout << it->first << " => " << it->second << '\n';
 }
 
@@ -45,18 +45,16 @@ void SequenceType::update_transition_matrix(char i, char j, string annotation){
 void SequenceType::calculateProbability(){
     for(char state: "iMo"){
         int total_trans = 0;
-        // Working on probability calculation.
-//        for(MapList::iterator it = this->sequence_lists.begin(); it != this->sequence_lists.end(); ++it){
-//            string key = it->first;
-//            if(key[0] == state)
-//                total_trans += this->transition_matrix[key];
-//        }
-//        
-//        for(MapList::iterator it = this->sequence_lists.begin(); it != this->sequence_lists.end(); ++it){
-//            string key = it->first;
-//            if(key[0] == state)
-//                this->transition_matrix[key] = this->transition_matrix[key] / (float) total_trans;
-//        }
+        //Working on probability calculation.
+        for(Map::iterator it = this->transition_matrix.begin(); it != this->transition_matrix.end(); ++it){
+            if(it->first[0] == state)
+                total_trans += it->second;
+        }
+        
+        for(Map::iterator it = this->transition_matrix.begin(); it != this->transition_matrix.end(); ++it){
+            if(it->first[0] == state)
+                it->second = it->second / (float)total_trans;
+        }
     }
 }
 
@@ -85,18 +83,9 @@ void SequenceType::convert_annotation(string amino_acid, string annotation){
         }
     }
     
-    this->calculateProbability();
-    
-    // To Display result in the format of annotation: corresponding amino acids.
-    //        for(MapList::iterator it = this->sequence_lists.begin(); it != this->sequence_lists.end(); ++it) {
-    //            cout << it->first << "," << endl;
-    //            vector<string> resu = it->second;
-    //            for(int i = 0 ;i < resu.size(); i++)
-    //                cout << resu[i] << endl;
-    //        }
 }
 
-void SequenceType::display_blah(){
+void SequenceType::display_sequence(){
     for(MapList::iterator it = this->sequence_lists.begin(); it != this->sequence_lists.end(); ++it) {
                     cout << it->first << "," << endl;
                     vector<string> resu = it->second;
@@ -105,6 +94,13 @@ void SequenceType::display_blah(){
                 }
 }
 
-
-
-
+DefaultDict SequenceType::get_durations(){
+    DefaultDict result;
+    for(MapList::iterator it = this->sequence_lists.begin(); it != this->sequence_lists.end(); ++it) {
+        result[it->first] = vector<int>();
+        vector<string> resu = it->second;
+        for(int i = 0 ;i < resu.size(); i++)
+            result[it->first].push_back(resu[i].length());
+    }
+    return result;
+}

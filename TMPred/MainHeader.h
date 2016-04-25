@@ -17,10 +17,13 @@
 
 using namespace std;
 
-typedef map<string,int> Map;
+typedef map<string, float> Map;
 
 // For Sequence Type: { i: ['ASDADS', 'ASDASD' ] }
 typedef map<char,vector<string> > MapList;
 
+
+// For Sequence Distance List { i: [6, 6, 6 ] }
+typedef map<char, vector<int> > DefaultDict;
 
 #endif /* MainHeader_h */
