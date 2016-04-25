@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11C8CE9C1CCD60A800025667 /* SequenceHelp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11C8CE9A1CCD60A800025667 /* SequenceHelp.cpp */; };
-		7E6EFB221CCD5041005F5B1B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E6EFB211CCD5041005F5B1B /* main.cpp */; };
+		7E6EFB221CCD5041005F5B1B /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E6EFB211CCD5041005F5B1B /* test.cpp */; };
 		7E6EFB291CCD50E8005F5B1B /* header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E6EFB281CCD50E8005F5B1B /* header.cpp */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,7 @@
 		11C8CE9B1CCD60A800025667 /* SequenceHelp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SequenceHelp.hpp; sourceTree = "<group>"; };
 		11C8CE9D1CCD6B2500025667 /* MainHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainHeader.h; sourceTree = "<group>"; };
 		7E6EFB1E1CCD5041005F5B1B /* TMPred */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TMPred; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E6EFB211CCD5041005F5B1B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7E6EFB211CCD5041005F5B1B /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
 		7E6EFB281CCD50E8005F5B1B /* header.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = header.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				7E6EFB281CCD50E8005F5B1B /* header.cpp */,
-				7E6EFB211CCD5041005F5B1B /* main.cpp */,
+				7E6EFB211CCD5041005F5B1B /* test.cpp */,
 				11C8CE9A1CCD60A800025667 /* SequenceHelp.cpp */,
 				11C8CE9B1CCD60A800025667 /* SequenceHelp.hpp */,
 				11C8CE9D1CCD6B2500025667 /* MainHeader.h */,
@@ -129,7 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E6EFB291CCD50E8005F5B1B /* header.cpp in Sources */,
-				7E6EFB221CCD5041005F5B1B /* main.cpp in Sources */,
+				7E6EFB221CCD5041005F5B1B /* test.cpp in Sources */,
 				11C8CE9C1CCD60A800025667 /* SequenceHelp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

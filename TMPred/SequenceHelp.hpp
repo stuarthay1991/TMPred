@@ -42,6 +42,7 @@ public:
      */
     void convert_annotation(string amino_acid, string annotation);
     
+    void calculateProbability();
     
     void update_transition_matrix(char i, char j, string annotation);
     

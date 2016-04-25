@@ -43,7 +43,18 @@ void SequenceType::update_transition_matrix(char i, char j, string annotation){
 void SequenceType::calculateProbability(){
     for(char state: "iMo"){
         int total_trans = 0;
-        
+        // Working on probability calculation.
+//        for(MapList::iterator it = this->sequence_lists.begin(); it != this->sequence_lists.end(); ++it){
+//            string key = it->first;
+//            if(key[0] == state)
+//                total_trans += this->transition_matrix[key];
+//        }
+//        
+//        for(MapList::iterator it = this->sequence_lists.begin(); it != this->sequence_lists.end(); ++it){
+//            string key = it->first;
+//            if(key[0] == state)
+//                this->transition_matrix[key] = this->transition_matrix[key] / (float) total_trans;
+//        }
     }
 }
 
@@ -71,6 +82,8 @@ void SequenceType::convert_annotation(string amino_acid, string annotation){
             temp += amino_acid[i];
         }
     }
+    
+    this->calculateProbability();
     
     // To Display result in the format of annotation: corresponding amino acids.
     //        for(MapList::iterator it = this->sequence_lists.begin(); it != this->sequence_lists.end(); ++it) {

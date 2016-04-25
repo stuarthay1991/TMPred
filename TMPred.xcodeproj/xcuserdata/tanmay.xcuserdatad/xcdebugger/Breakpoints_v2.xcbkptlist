@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMPred/SequenceHelp.cpp"
-            timestampString = "483233894.869566"
+            timestampString = "483237696.182039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "SequenceType::convert_annotation(string amino_acid, string annotation)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMPred/SequenceHelp.cpp"
-            timestampString = "483235550.779285"
+            timestampString = "483237696.182039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "SequenceType::convert_annotation(string amino_acid, string annotation)"
             landmarkType = "5">
          </BreakpointContent>

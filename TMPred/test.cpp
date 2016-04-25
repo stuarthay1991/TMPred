@@ -20,5 +20,6 @@ int main(int argc, const char * argv[])
     //convert_annotation("ADSASDADAUDS", "iiiMMMoooMMM");
     SequenceType s = SequenceType();
     s.convert_annotation("ADSASDADAUDS", "iiiMMMoooMMM");
+    display_transition(s.transition_matrix);
     return 0;
 }
