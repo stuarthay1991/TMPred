@@ -22,6 +22,10 @@ Map init_transition_matrix(){
     return result;
 }
 
+SequenceType::SequenceType(){
+    this->transition_matrix = init_transition_matrix();
+}
+
 
 void display_transition(Map result){
     for (Map::iterator it=result.begin(); it!=result.end(); ++it)
@@ -29,28 +33,52 @@ void display_transition(Map result){
 }
 
 
-MapList convert_annotation(string amino_acid, string annotation){
+void SequenceType::update_transition_matrix(char i, char j, string annotation){
+    string key_temp;
+    key_temp += annotation[i];
+    key_temp += annotation[i+1];
+    this->transition_matrix[key_temp] += 1;
+}
+
+void SequenceType::calculateProbability(){
+    for(char state: "iMo"){
+        int total_trans = 0;
+        
+    }
+}
+
+
+void SequenceType::convert_annotation(string amino_acid, string annotation){
     if(amino_acid.length() != annotation.length()){
         cerr << "AMINO ACID and ANNOTATION are not of same length" << endl;
         exit(0);
     }
     
-    MapList result;
-    vector<int> change_indices;
+    string temp;
     
-    for(int i = 0; i < annotation.length(); i++){
-        if(i == 0){
-            change_indices.push_back(i);
-            result[annotation[i]] = vector<string>();
-        }else if(annotation[i] != annotation[i-1]){
-            change_indices.push_back(i);
+    for (int i = 0; i < annotation.length(); i++) {
+        if(annotation[i] != annotation[i+1] || i+1 == annotation.length()){
+            // Found a change in the sequence, do following:
+            temp += amino_acid[i];
+            // Update list for that annotation.
+            if(this->sequence_lists.find(annotation[i]) == this->sequence_lists.end())
+                this->sequence_lists[annotation[i]] = vector<string>();
+            this->sequence_lists[annotation[i]].push_back(temp);
+            temp = "";
+            // Update transition matrix for that annotation.
+            this->update_transition_matrix(i, i+1, annotation);
+        }else{
+            temp += amino_acid[i];
         }
     }
     
-    for(int i=0; i< change_indices.size(); i++){
-        cout << change_indices[i];
-    }
-    return result;
+    // To Display result in the format of annotation: corresponding amino acids.
+    //        for(MapList::iterator it = this->sequence_lists.begin(); it != this->sequence_lists.end(); ++it) {
+    //            cout << it->first << "," << endl;
+    //            vector<string> resu = it->second;
+    //            for(int i = 0 ;i < resu.size(); i++)
+    //                cout << resu[i] << endl;
+    //        }
 }
 
 

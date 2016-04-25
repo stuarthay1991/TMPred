@@ -17,8 +17,8 @@ int main(int argc, const char * argv[])
     // insert code here...
     cout << "Hello, World!\n";
     //display_transition(init_transition_matrix());
-    
-    convert_annotation("ADSASDADAUDS", "iiiMMMoooMMM");
-    
+    //convert_annotation("ADSASDADAUDS", "iiiMMMoooMMM");
+    SequenceType s = SequenceType();
+    s.convert_annotation("ADSASDADAUDS", "iiiMMMoooMMM");
     return 0;
 }

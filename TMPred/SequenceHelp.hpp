@@ -31,12 +31,28 @@ Map init_transition_matrix();
 void display_transition(Map result);
 
 
-/*
- *  Input: String amino acid, annotation. Ex: ( ASDARAASDSDF, iiiMMMoooMMM )
- *  Output: List annotation based amino acids. Ex: { i: [ 'ASD' ], M: [ 'ARA', 'SDF' ], o: [ 'ASD' ] }
- *  Converts the given record to a sequence type usable.
- */
-MapList convert_annotation(string amino_acid, string annotation);
+class SequenceType{
+    
+public:
+    
+    /*
+     *  Input: String amino acid, annotation. Ex: ( ASDARAASDSDF, iiiMMMoooMMM )
+     *  Output: List annotation based amino acids. Ex: { i: [ 'ASD' ], M: [ 'ARA', 'SDF' ], o: [ 'ASD' ] }
+     *  Converts the given record to a sequence type usable.
+     */
+    void convert_annotation(string amino_acid, string annotation);
+    
+    
+    void update_transition_matrix(char i, char j, string annotation);
+    
+    /*
+     *  Contructor that initalizes the Transition Matrix
+     */
+    SequenceType();
+    
+    Map transition_matrix;
+    MapList sequence_lists;
+};
 
 
 
