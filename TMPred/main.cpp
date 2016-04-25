@@ -74,6 +74,37 @@ vector<vector<string>> CleanSeq::print()
     return output;
 }
 
+AAandStateFreq::AAandStateFreq(vector<vector<string>> invector)
+{
+    content = invector;
+}
+
+void AAandStateFreq::findInitialStateFreqs()
+{
+    int iCount = 0;
+    int oCount = 0;
+    int MCount = 0;
+    for(int i = 0; i < content.size(); i++)
+    {
+        if(content[i][1][0] == 'i')
+        {
+            iCount = iCount + 1;
+        }
+        if(content[i][1][0] == 'o')
+        {
+            oCount = oCount + 1;
+        }
+        if(content[i][1][0] == 'M')
+        {
+            MCount = MCount + 1;
+        }
+    }
+    double sum = iCount + oCount + MCount;
+    iInitialFreq = iCount / sum;
+    oInitialFreq = oCount / sum;
+    MInitialFreq = MCount / sum;
+}
+
 int main(int argc, const char * argv[])
 {
     string bob1 = "PPPLLLPPP";
@@ -88,6 +119,10 @@ int main(int argc, const char * argv[])
     {
         std::cout << outlist[i][0].length() << " " << outlist[i][1].length() << "\n";
     }
-
+    AAandStateFreq outlistfreqs(outlist);
+    outlistfreqs.findInitialStateFreqs();
+    cout << outlistfreqs.iInitialFreq << '\n';
+    cout << outlistfreqs.oInitialFreq << '\n';
+    cout << outlistfreqs.MInitialFreq << '\n';
     return 0;
 }
