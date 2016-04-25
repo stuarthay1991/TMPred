@@ -28,6 +28,8 @@
 		11C8CE9A1CCD60A800025667 /* SequenceHelp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceHelp.cpp; sourceTree = "<group>"; };
 		11C8CE9B1CCD60A800025667 /* SequenceHelp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SequenceHelp.hpp; sourceTree = "<group>"; };
 		11C8CE9D1CCD6B2500025667 /* MainHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainHeader.h; sourceTree = "<group>"; };
+		11C8CE9E1CCDA6B200025667 /* class.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = class.cpp; sourceTree = "<group>"; };
+		11C8CE9F1CCDA6B200025667 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7E6EFB1E1CCD5041005F5B1B /* TMPred */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TMPred; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E6EFB211CCD5041005F5B1B /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
 		7E6EFB281CCD50E8005F5B1B /* header.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = header.cpp; sourceTree = "<group>"; };
@@ -63,6 +65,8 @@
 		7E6EFB201CCD5041005F5B1B /* TMPred */ = {
 			isa = PBXGroup;
 			children = (
+				11C8CE9E1CCDA6B200025667 /* class.cpp */,
+				11C8CE9F1CCDA6B200025667 /* main.cpp */,
 				7E6EFB281CCD50E8005F5B1B /* header.cpp */,
 				7E6EFB211CCD5041005F5B1B /* test.cpp */,
 				11C8CE9A1CCD60A800025667 /* SequenceHelp.cpp */,
