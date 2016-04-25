@@ -36,8 +36,10 @@ void display_transition(Map result){
 void SequenceType::update_transition_matrix(char i, char j, string annotation){
     string key_temp;
     key_temp += annotation[i];
-    key_temp += annotation[i+1];
-    this->transition_matrix[key_temp] += 1;
+    if(annotation[j] != '\0'){
+        key_temp += annotation[j];
+        this->transition_matrix[key_temp] += 1;
+    }
 }
 
 void SequenceType::calculateProbability(){
@@ -92,6 +94,15 @@ void SequenceType::convert_annotation(string amino_acid, string annotation){
     //            for(int i = 0 ;i < resu.size(); i++)
     //                cout << resu[i] << endl;
     //        }
+}
+
+void SequenceType::display_blah(){
+    for(MapList::iterator it = this->sequence_lists.begin(); it != this->sequence_lists.end(); ++it) {
+                    cout << it->first << "," << endl;
+                    vector<string> resu = it->second;
+                    for(int i = 0 ;i < resu.size(); i++)
+                        cout << resu[i] << endl;
+                }
 }
 
 

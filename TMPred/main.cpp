@@ -69,12 +69,12 @@ void CleanSeq::fill()
     }
 }
 
-vector<vector<string>> CleanSeq::print()
+vector<vector<string> > CleanSeq::print()
 {
     return output;
 }
 
-AAandStateFreq::AAandStateFreq(vector<vector<string>> invector)
+AAandStateFreq::AAandStateFreq(vector<vector<string> > invector)
 {
     content = invector;
 }
@@ -110,16 +110,24 @@ int main(int argc, const char * argv[])
     string bob1 = "PPPLLLPPP";
     string bob2 = "MMM...MMM";
     string line;
-    string myfile ="/Users/haysb/Desktop/TMPred/TMPred/test.ffa";
+    string myfile ="/Users/tanmay/Desktop/SPRING\ 16/Algorithm\ -\ 3/TMPred/TMPred/test.ffa";
     CleanSeq bob;
     bob.read(myfile);
     bob.fill();
-    vector<vector<string>> outlist = bob.print();
+    vector<vector<string> > outlist = bob.print();
+    SequenceType s = SequenceType();
+
     for(int i = 0; i < outlist.size(); i++)
     {
         std::cout << outlist[i][0].length() << " " << outlist[i][1].length() << "\n";
+        //s.convert_annotation("ADSASDADAUDS", "iiiMMMoooMMM");
+        s.convert_annotation(outlist[i][0], outlist[i][1]);
     }
+    std::cout << "New File" << endl;
+    s.display_blah();
+
     AAandStateFreq outlistfreqs(outlist);
+
     outlistfreqs.findInitialStateFreqs();
     cout << outlistfreqs.iInitialFreq << '\n';
     cout << outlistfreqs.oInitialFreq << '\n';

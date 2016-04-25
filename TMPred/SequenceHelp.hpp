@@ -45,6 +45,8 @@ public:
     void calculateProbability();
     
     void update_transition_matrix(char i, char j, string annotation);
+
+    void display_blah();
     
     /*
      *  Contructor that initalizes the Transition Matrix

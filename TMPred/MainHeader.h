@@ -20,7 +20,7 @@ using namespace std;
 typedef map<string,int> Map;
 
 // For Sequence Type: { i: ['ASDADS', 'ASDASD' ] }
-typedef map<char,vector<string>> MapList;
+typedef map<char,vector<string> > MapList;
 
 
 #endif /* MainHeader_h */
