@@ -17,11 +17,16 @@
 
 using namespace std;
 
-typedef map<string,int> Map;
+typedef map<string, float> Map;
 
 // For Sequence Type: { i: ['ASDADS', 'ASDASD' ] }
 typedef map<char,vector<string> > MapList;
 typedef map<char,double > AAFreqList;
 typedef map<char,double > AACountList;
+// For Sequence Distance List { i: [6, 6, 6 ] }
+typedef map<char, vector<int> > DefaultDict;
+
+// For 2d array
+typedef vector<vector<double> > array_2d;
 
 #endif /* MainHeader_h */

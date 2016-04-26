@@ -183,6 +183,7 @@ int main(int argc, const char * argv[])
         //s.convert_annotation("ADSASDADAUDS", "iiiMMMoooMMM");
         s.convert_annotation(outlist[i][0], outlist[i][1]);
     }
+
     cout << "DURATION LISTS BY CHARACTER" << endl;
     s.display_blah();
 
