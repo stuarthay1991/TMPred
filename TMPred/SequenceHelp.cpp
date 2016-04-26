@@ -175,6 +175,15 @@ array_2d Normalization::get_normalised_distance(){
     return this->normalized_distances;
 }
 
+void SequenceType::display_blah(){
+    for(MapList::iterator it = this->sequence_lists.begin(); it != this->sequence_lists.end(); ++it) {
+                    cout << it->first << "," << endl;
+                    vector<string> resu = it->second;
+                    for(int i = 0 ;i < resu.size(); i++)
+                        cout << resu[i] << endl;
+                }
+}
+
 
 
 

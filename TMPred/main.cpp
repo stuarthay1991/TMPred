@@ -4,6 +4,8 @@
 #include <fstream>
 #include "header.h"
 
+#define amino_alphabet "ARNDCQEGHILKMFPSTWYV"
+
 void CleanSeq::pruneAndAdd(string amino, string annotation)
 {
     string outstring_amino = "";
@@ -105,35 +107,106 @@ void AAandStateFreq::findInitialStateFreqs()
     MInitialFreq = MCount / sum;
 }
 
+void AAandStateFreq::findAAFreqByState()
+{
+    AACountList aaiCounts;
+    AACountList aaMCounts;
+    AACountList aaoCounts;
+    for(char i: amino_alphabet)
+    {
+        if(i != NULL)
+        {
+        aaiCounts[i] = 0;
+        aaMCounts[i] = 0;
+        aaoCounts[i] = 0;
+        }
+    }
+    for(char i: amino_alphabet)
+    {
+        if(i != NULL)
+        {
+            for(int k = 0; k<content.size(); k++)
+            {
+                for(int j = 0; j<content[k][0].length(); j++)
+                {
+                    if(content[k][1][j] == 'i' and content[k][0][j] == i)
+                        aaiCounts[i] = aaiCounts[i] + 1;
+                    if(content[k][1][j] == 'M' and content[k][0][j] == i)
+                        aaMCounts[i] = aaMCounts[i] + 1;
+                    if(content[k][1][j] == 'o' and content[k][0][j] == i)
+                        aaoCounts[i] = aaoCounts[i] + 1;
+                }
+            }
+        }
+    }
+    double isum = 0;
+    double Msum = 0;
+    double osum = 0;
+    for(char i: amino_alphabet)
+    {
+        if(i != NULL)
+        {
+            isum = isum + aaiCounts[i];
+            Msum = Msum + aaMCounts[i];
+            osum = osum + aaoCounts[i];
+        }
+    }
+
+    for(char i: amino_alphabet)
+    {
+        if(i != NULL)
+        {
+            AAifrequencies[i] = aaiCounts[i] / isum;
+            AAMfrequencies[i] = aaMCounts[i] / Msum;
+            AAofrequencies[i] = aaoCounts[i] / osum;
+        }
+    }
+
+}
+
 int main(int argc, const char * argv[])
 {
     string bob1 = "PPPLLLPPP";
     string bob2 = "MMM...MMM";
     string line;
-    string myfile ="/Users/tanmay/Desktop/SPRING\ 16/Algorithm\ -\ 3/TMPred/TMPred/test.ffa";
+    string myfile ="test.ffa";
     CleanSeq bob;
     bob.read(myfile);
     bob.fill();
     vector<vector<string> > outlist = bob.print();
     SequenceType s = SequenceType();
 
+    cout << "CHECKING LENGTHS..." << endl;
     for(int i = 0; i < outlist.size(); i++)
     {
         std::cout << outlist[i][0].length() << " " << outlist[i][1].length() << "\n";
         //s.convert_annotation("ADSASDADAUDS", "iiiMMMoooMMM");
         s.convert_annotation(outlist[i][0], outlist[i][1]);
     }
-    
-    std::cout << "New File" << endl;
+
+    cout << "DURATION LISTS BY CHARACTER" << endl;
     s.display_blah();
-    s.calculateProbability();
-    
 
     AAandStateFreq outlistfreqs(outlist);
 
     outlistfreqs.findInitialStateFreqs();
+    outlistfreqs.findAAFreqByState();
+    cout << "INITIAL FREQ" << '\n';
     cout << outlistfreqs.iInitialFreq << '\n';
     cout << outlistfreqs.oInitialFreq << '\n';
     cout << outlistfreqs.MInitialFreq << '\n';
+    
+    cout << "FREQUENCY BY LETTER" << '\n';
+    for(char i: "ARNDCQEGHILKMFPSTWYV")
+    {
+        if(i != NULL)
+        {
+            cout << "LETTER: " << i << '\n';
+            cout << "STATE i: " << outlistfreqs.AAifrequencies[i] << '\n';
+            cout << "STATE M: " << outlistfreqs.AAMfrequencies[i] << '\n';
+            cout << "STATE o: " << outlistfreqs.AAofrequencies[i] << '\n'; 
+        }
+    }
+
     return 0;
 }

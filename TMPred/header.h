@@ -18,9 +18,13 @@ class AAandStateFreq{
 public:
 	AAandStateFreq(vector<vector<string> > invector);
 	void findInitialStateFreqs();
+	void findAAFreqByState();
 	double iInitialFreq = 0;
 	double oInitialFreq = 0;
 	double MInitialFreq = 0;
+	AAFreqList AAifrequencies;
+	AAFreqList AAMfrequencies;
+	AAFreqList AAofrequencies;
 private:
 	vector<vector<string> > content;
 };

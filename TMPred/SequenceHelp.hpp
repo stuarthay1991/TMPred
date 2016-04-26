@@ -38,6 +38,8 @@ public:
     void calculateProbability();
     
     void update_transition_matrix(char i, char j, string annotation);
+
+    void display_blah();
     
     /*
      *  Input: Transition Matrix of the Map form
