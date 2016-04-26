@@ -29,6 +29,17 @@ int main(){
     s.display_transition();
     DefaultDict x = s.get_durations();
     display_duration(x);
+    Normalization norm = Normalization(x);
+    array_2d dist_norm = norm.get_normalised_distance();
+    
+    for(int i=0; i < dist_norm.size(); i++){
+        vector<double> row = dist_norm[i];
+        for(int j = 0; j < row.size(); j++){
+            cout << dist_norm[i][j] << " " << endl;
+        }
+        
+    }
+    
     return 0;
 }
 

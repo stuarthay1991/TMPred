@@ -64,5 +64,16 @@ public:
 };
 
 
+class Normalization{
+public:
+    
+    Normalization(DefaultDict distance);
+    array_2d get_normalised_distance();
+    void verification_norm();
+    DefaultDict distances;
+    array_2d normalized_distances;
+};
+
+
 
 #endif /* SequenceHelp_hpp */

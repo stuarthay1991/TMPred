@@ -26,4 +26,7 @@ typedef map<char,vector<string> > MapList;
 // For Sequence Distance List { i: [6, 6, 6 ] }
 typedef map<char, vector<int> > DefaultDict;
 
+// For 2d array
+typedef vector<vector<double> > array_2d;
+
 #endif /* MainHeader_h */

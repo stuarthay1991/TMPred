@@ -7,6 +7,10 @@
 //
 
 #include "SequenceHelp.hpp"
+#include <numeric>
+#include <math.h>
+
+# define M_PI           3.14159265358979323846  /* pi */
 
 Map init_transition_matrix(){
     Map result;
@@ -104,3 +108,75 @@ DefaultDict SequenceType::get_durations(){
     }
     return result;
 }
+
+
+Normalization::Normalization(DefaultDict distance){
+    this->distances = distance;
+}
+
+double calculate_mean(vector<int> v){
+    double sum = accumulate(v.begin(), v.end(), 0.0);
+    return (float)sum/v.size();
+}
+
+double calculate_std(vector<int> v, double mean){
+    double sq_sum = inner_product(v.begin(), v.end(), v.begin(), 0.0);
+    return sqrt(sq_sum/ v.size() - mean * mean);
+}
+
+vector<double> math_norm(int max,double mean,double std){
+    vector<double> result= vector<double>();
+    for (int i=0; i < max; i++) {
+        double y = (i-mean)/std;
+        double x = pow(y, 2)/2.0;
+        double numer = exp(-x);
+        double denom = sqrt(M_PI * 2.0);
+        result.push_back(numer/denom);
+    }
+    return result;
+}
+
+void Normalization::verification_norm(){
+    for(int i=0; i < this->normalized_distances.size(); i++){
+        vector<double> row = this->normalized_distances[i];
+        double sum = accumulate(row.begin(), row.end(), 0.0);
+        
+        for(int j = 0; j < row.size(); j++){
+            if( sum != 0){
+                this->normalized_distances[i][j] /= (double)sum;
+            }
+        }
+    }
+}
+
+array_2d Normalization::get_normalised_distance(){
+    int max = 0;
+    for(DefaultDict::iterator it = this->distances.begin(); it != this->distances.end(); ++it){
+        int temp = * max_element(it->second.begin(), it->second.end());
+        if (temp > max){
+            max = temp;
+        }
+    }
+    array_2d norm_array(3);
+    for(int i=0; i < 3; i++)
+        norm_array[i].resize(max,0);
+    this->normalized_distances = norm_array;
+    int j = 0;
+    for(char i: "iMo"){
+        if(i == '\0')
+            continue;
+        double mean = calculate_mean(this->distances[i]);
+        double std = calculate_std(this->distances[i],mean);
+        this->normalized_distances[j] = math_norm(max, mean, std);
+        j++;
+    }
+    
+    this->verification_norm();
+    return this->normalized_distances;
+}
+
+
+
+
+
+
